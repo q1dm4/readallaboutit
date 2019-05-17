@@ -1,6 +1,6 @@
-Phone Setup
-################
-#### Contents
+# Phone Setup
+
+## Contents
 - Lineage Install
 - Magisk and Smali Patcher
 - Pogo
