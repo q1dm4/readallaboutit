@@ -97,9 +97,7 @@ Here are the configuration options for RGC
  
 2. To login to PogoDroid you need to be a [Patreon supporter](https://www.patreon.com/user?u=14159560).  Become a supporter and link your account to Discord.  
 
-* 2.1. You can obtain a token by clicking on `Get Token` in PogoDroid and sending the command `!settoken <your_token>` to the MAD Discord Bot.
-
------------So this part I only documented after I already had one phone setup.-----------  
+     2.1. You can obtain a token by clicking on `Get Token` in PogoDroid and sending the command `!settoken <your_token>` to the MAD Discord Bot.
 
 3. Click "Get Refresh Token", then when you get to the next page it will tell you to copy a password and API Token.  Copy both, put them in a notepad (if you dont have a notepad app, nows the time to get one).  I think the API is not used, but still copy/paste both.  
 
