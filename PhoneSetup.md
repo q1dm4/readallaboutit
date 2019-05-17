@@ -10,7 +10,7 @@
 - Final Steps
 - Rubberbanding troubleshooting (GPS being jumpy)
 
-### Summary of what your about to do
+## Summary of what your about to do
 You need a phone with root access, running Lineage OS, with Magisk, Smali, PogoDroid and RGC installed.  
 Summary of the phone requirements.
 - You need a phone on the MAD device list.
@@ -21,7 +21,7 @@ Summary of the phone requirements.
 - Then install Pogo.
 - Finally install and configure RGC and PogoDroid
 
-### Phone and Lineage Install
+## Phone and Lineage Install
 
 1. Phone - Aquire one of the phones on this list.  (https://github.com/Map-A-Droid/MAD-device-list).  Some phones need to be a certain version number to work, see below.
 
@@ -33,21 +33,21 @@ Summary of the phone requirements.
 
 4. Once you have Lineage installed and the Google Apps with the Playstore, move on to Magisk.
 
-### Magisk
+## Magisk
 1. Magisk - Install [Magisk](https://www.xda-developers.com/how-to-install-magisk/) to root the phone via recovery. 
      * You need version 18.1 of Magisk, nothing else works.
      * You need version 7.1.1 of Magisk Manager or lower.
 2. Download it here https://github.com/topjohnwu/Magisk/releases
 3. Repackage the MagiskManager App and add to Magisk Hide. Make sure to delete the folder `/sdcard/MagiskManager` after repackaging.
 
-### Smali Patcher version 4.9
+## Smali Patcher version 4.9
 I used this to get a Galaxy S5 and Moto G4 to work, I am unsure if its needed on all phones.
 1. Follow the instructions here to download and install, here's the [Smali Patcher Forum](https://forum.xda-developers.com/apps/magisk/module-smali-patcher-0-7-t3680053)
 2. Download link if you need it [Smali 4.9 download](https://forum.xda-developers.com/apps/magisk/module-smali-patcher-0-7-t3680053)
 3. Once you are finished installing and reboot the phone, go into Magisk, Menu, Modules.  You should see Smali Patcher listed.  
 
 
-### Applications Part 1 - Pogo & RGC
+## Applications - Pogo, RGC & PogoDroid
 ### Pogo
 1. Pogo - Install the PoGo app from the Play Store.
 
@@ -90,3 +90,52 @@ Here are the configuration options for RGC
 * -Start RGC Delay = 0
 * -Start services on appstart = On
 * -Start mediaprojection on appstart = Off
+
+### PogoDroid
+
+1. Install [PogoDroid](https://www.maddev.de/apk/PogoDroid.apk) (only necessary for MITM mode) on the phone.
+ 
+2. To login to PogoDroid you need to be a [Patreon supporter](https://www.patreon.com/user?u=14159560).  Become a supporter and link your account to Discord.  
+
+* 2.1. You can obtain a token by clicking on `Get Token` in PogoDroid and sending the command `!settoken <your_token>` to the MAD Discord Bot.
+
+-----------So this part I only documented after I already had one phone setup.-----------  
+
+3. Click "Get Refresh Token", then when you get to the next page it will tell you to copy a password and API Token.  Copy both, put them in a notepad (if you dont have a notepad app, nows the time to get one).  I think the API is not used, but still copy/paste both.  
+
+4. On next screen login with the password they just gave you.  
+
+5. Once logged in, click "Passwords" on the top.
+
+6. On the password page it should tell you your Device Count allowed.  Below that it shows you the password for your phones.  If your adding a new phone, create a new password.  Copy that into a notepad.  Each phone needs its own password. Logout of this whole thing.
+
+7. Go back to PogoDroid.  Use your email address and that new "Device Password" you setup in the previous step.
+
+8. Now time to configure PogoDroid
+
+**External Communication Section**
+* -Disable external comm = Off
+* -Post Destination = `http://ipofyourserver:8000`
+* -Post Origin = Make this match what you put in RGC
+* -Disable last sent notifications = On
+* -Auth = Off
+
+**Apps**
+* -Broken: Repackage - don't touch
+* -Export Settings - don't touch
+* -Injection Delay - don't touch
+* -Lower SELinux to permissive = On
+* -Full daemon mode = On
+* -Start Pogodoid with a delay (seconds) - don't touch
+* -Enable OOm override = On
+* -Test feature: Mock location patching = Off
+
+
+
+## Final Steps
+
+* Go into Android Settings, Security, Lock Screen Swipe, change to None.  You dont want a lock screen.  Locking and unlocking your phone should bring you right to the desktop.
+
+* Turn on Airplane mode and make sure Wifi is still connected.
+
+* Before we finish, go inside of Magisk and run the Safetynet Check one last time.  You need to see all green before proceeding.
